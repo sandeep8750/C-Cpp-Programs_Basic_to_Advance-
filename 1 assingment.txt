@@ -1,0 +1,117 @@
+/*
+//12. Find output of below code:
+int main()
+{
+int x = printf("ineuron");
+printf("%d",x);
+return 0;
+}
+//output is:ineuron7
+*/
+
+/*
+//11 WAP to take time as an input in below given format and convert the time format and
+//display the result as given below.
+//User Input date format – “HH:MM”
+//Output format – “HH hour and MM Minute”
+int main()
+{
+    int hh,mm;
+    printf("Enter time in given format \"HH:MM\":\n");
+    scanf("%d:%d",&hh,&mm);
+    printf("%d Hour and %d Minute",hh,mm);
+}
+*/
+
+/*
+//10. WAP to take date as an input in below given format and convert the date format and
+//display the result as given below.
+//User Input date format – “DD/MM/YYYY” (27/11/2022)
+//Output format –
+//“Day – DD , Month – MM , Year – YYYY” (Day – 27 ,Month – 07 , Year – 2022)
+#include<stdio.h>
+int main()
+{
+    int dd,mm,yy;
+printf("input date in format DD/MM/YYYY:\n");
+scanf("%d/%d/%d",&dd,&mm,&yy);
+printf("Day - %d , Month -%d , Year - %d",dd,mm,yy);
+}
+*/
+
+
+/*
+//7. WAP to print “%d” on the screen.
+//8. WAP to print “\n” on the screen.
+//9. WAP to print “\\” on the screen.
+int main()
+{
+    printf("%%d\n ");
+    printf("\\n \n ");
+    printf("\\\\");
+}
+*/
+
+/*
+//6.wap to print name of user in double quotes
+int main()
+{
+    printf("\"Hello,Sandeep kumar\"");
+}
+*/
+
+/*
+//1.WAP to a calculate the length of string using printf function
+int main()
+{
+    char a[10];
+    int x;
+    printf("Enter a string:");
+    gets(a);
+    printf("lenght of string is:%d\n",strlen(a));
+    //2 way is
+    x=printf("Sandeep kumar");
+    printf("lenght is %d",x);
+}
+*/
+
+
+/*
+//4. WAP to find the area of the circle. Take radius of circle from user as input and print the
+//result in below given format.
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+    int radius,area;
+    float pi=3.14;
+    printf("Enter the radius of circle:");
+    scanf("%d",&radius);
+    printf("Area of circle is:%d",area=pi*radius*radius);
+
+}
+*/
+/*
+//write a program to print "Mysirg" on the screen
+int main()
+{
+    printf("\"Mysirg\"");
+}
+*/
+
+/*
+//2. write a programe to print hello in first line and student in scond line
+int main()
+{
+printf("Hello\nstudent ");
+}
+*/
+
+/*
+//1. wriite a program to print hello on screen
+
+int main(){
+printf("Hello");
+
+}
+*/
