@@ -1,0 +1,208 @@
+/*
+//13. Write a program to take a three-digit number from the user and rotate its digits by one position towards the right.
+int main()
+{
+    int num,rem;
+    printf("Enter a number :");
+    scanf("%d",&num);
+    rem=num%10;
+    num=num/10;
+    num=rem*100+num ;
+    printf("%d",num) ;
+}
+*/
+
+
+/*
+//12. Assume price of 1 USD is INR 76.23. Write a program to take the amount in INR and convert it into USD.
+int main()
+{
+    float n,rupee;
+    printf("Enter INR to convert in USD : ");
+    scanf("%f",&n);
+    rupee=n*76.23;
+    printf("USD IS INPUTED RUPEE:%f",rupee);
+
+}
+*/
+
+
+/*
+//11. Write a program to input a number from the user and also input a digit. Append a
+//digit in the number and print the resulting number. (Example - number=234 and
+//digit=9 then the resulting number is 2349)
+int main()
+{
+    int num,digit ;
+    printf("Enter a number:\n ");
+    scanf("%d",&num);
+    num=num*10;
+    printf("Enter a digit :");
+    scanf("%d",&digit);
+    num=num+digit;
+    printf("After append number is :%d",num  );
+}
+*/
+
+
+/*
+//10. Write a program to make the last digit of a number stored in a variable as zero.
+//(Example - if x=2345 then make it x=2340)
+int main()
+{
+    int x;
+    int rem;
+    printf("Enter a number :");
+    scanf("%d",&x);
+    rem=x%10;
+    x=x-rem;
+    printf("%d",x);
+}
+*/
+
+
+/*
+//9. Write a program to print size of an int, a float, a char and a double type variable
+int main()
+{
+    printf("int size is %d\n",sizeof(int));
+    printf("char size is %d\n",sizeof(char));
+    printf("float size is %d\n",sizeof(float));
+    printf("double size is %d",sizeof(double));
+}
+*/
+
+
+/*
+//8. Write a program to check whether the given number is even or odd using a bitwise operator.
+
+int main()
+{
+    int n;
+    printf("Enter a number to cheak even or odd:");
+    scanf("%d",&n);
+    if(n&1==1)
+    {
+        printf("odd");
+    }
+    else{
+        printf("even");
+    }
+    return 0;
+}
+*/
+
+
+/*
+//7. Write a program to find the position of first 1 in LSB.
+int main()
+{
+    int x,result ,count=0;
+    printf("Enter a number to find LSB poistion  AS 1: ");
+    scanf("%d",&x);
+    while(x!=0)
+    {
+     result=x&1;
+    count++;
+    if(result==1)
+    {
+        printf("%d",count);
+        break;
+    }
+    x=x>>1;
+    }
+}
+*/
+
+
+/*
+//6. Write a program which takes a character as an input and displays its ASCII code.
+int main()
+{
+    char c;
+    printf("Enter a character to find ASCII VALUE :");
+    scanf("%c",&c);
+    printf("ASCII VALUE of  given character %c is : %d ",c,c);
+}
+*/
+
+
+/*
+//5. Write a program to input a three-digit number and display the sum of the digits.
+int main()
+{
+    int n, temp;
+    int a, sum=0;
+    printf("Enter a number :");
+    scanf("%d",&n);
+    temp=n;
+
+    a=n%10;
+    sum=sum+a;
+    n=n/10;
+
+    a=n%10;
+    sum=sum+a;
+    n=n/10;
+
+    a=n%10;
+    sum=sum+a;
+    n=n/10;
+
+    printf("sum of digit of %d is %d",temp,sum);
+}
+*/
+
+
+/*
+//4. Write a program to swap values of two int variables without using a third variable.
+int main()
+{
+    int a,b;
+    printf("Enter two number for swap");
+    scanf("%d%d",&a,&b);
+    a=a+b;
+    b=a-b;
+    a=a-b;
+    printf("now a is %d and b is %d",a,b);
+}
+*/
+
+
+/*
+//3. Write a program to swap values of two int variables
+int main()
+{
+    int a,b;
+    int temp;
+    printf("Enter  number: ");
+    scanf("%d%d",&a,&b);
+    temp=a;
+    a=b;
+    b=temp;
+    printf("a is %d & b is %d",a,b);
+}
+*/
+
+/*
+//2. Write a program to print a given number without its last digit.
+int main()
+{
+    int a,x;
+printf("Enter a number:");
+scanf("%d",&a);
+x=a/10;
+printf("%d",x);
+}
+*/
+
+/*
+//1. Write a program to print unit digit of a given number
+int main()
+{
+    int n;
+    printf("Enter a number to find unit digit:");
+    scanf("%d",&n);
+    printf("unit digit of number is:%d",n%10);
+}
+*/
