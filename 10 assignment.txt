@@ -1,0 +1,228 @@
+/*
+//10. Write a function to print all prime factors of a given number. For example, if the number is 36 then your result should be 2, 2, 3, 3. (TSRN)
+int main()
+{
+    int n;
+    printf("Enter a numbre: ");
+    scanf("%d",&n);
+    allprime(n);
+}
+
+void allprime(int n)
+{
+    for(int i=2;i<=n;i++)
+    {
+        while(n%i==0)
+        {
+            n=n/i;
+            printf("%d",i);
+        }
+    }
+}
+*/
+
+ /*
+//9. Write a function to check whether a given number contains a given digit or not(TSRS)
+int main()
+{
+    int n;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+   printf("%d digit is found in Entered number" ,cheak(n));
+}
+int cheak(int n)
+{
+    int b,rem;
+    printf("Enter a digit: ");
+    scanf("%d",&b);
+    while(n!=0)
+    {
+        rem=n%10;
+        if(rem==b)
+            return 1;
+            n=n/10;
+           }
+           return 0;
+}
+*/
+
+/*
+//8. Write a function to calculate the number of arrangements one can make from n items and r selected at a time. (TSRS)
+float factorial(int );
+float findpcr(int ,int );
+
+int main()
+ {
+     int n,r;
+     float pcr;
+     printf("Enter n and r: ");
+     scanf("%d%d",&n,&r);
+     pcr=findpcr(n,r);
+     printf("%f",pcr);
+ }
+  float findpcr(int n,int r)
+ {
+     float pcr;
+     pcr=factorial(n)/factorial(n-r);
+     return pcr;
+ }
+
+  float factorial(int n)
+{
+    int fact=1;
+    while(n!=0)
+    {
+    fact=fact*n;
+    n--;
+    }
+    return fact;
+}
+*/
+
+/*
+//7. Write a function to calculate the number of combinations one can make from n items and r selected at a time. (TSRS)
+float factorial(int );
+float findncr(int ,int );
+ int main()
+ {
+     int n,r;
+     float Ncr;
+     printf("Enter n and r: ");
+     scanf("%d%d",&n,&r);
+     Ncr=findncr(n,r);
+     printf("%f",Ncr);
+ }
+ float findncr(int n,int r)
+ {
+     float ncr;
+     ncr=factorial(n)/(factorial(r)*factorial(n-r));
+     return ncr;
+ }
+ float factorial(int n)
+{
+    int fact=1;
+    while(n!=0)
+    {
+    fact=fact*n;
+    n--;
+    }
+    return fact;
+}
+*/
+
+
+/*
+//6. Write a function to calculate the factorial of a number. (TSRS)
+int main()
+{
+    int n;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+    factorial(n);
+}
+
+int factorial(int n)
+{
+    int fact=1;
+    while(n!=0)
+    {
+    fact=fact*n;
+    n--;
+    }
+    return (printf("%d",fact));
+}
+*/
+
+/*
+//5. Write a function to print first N odd natural numbers. (TSRN)
+int main()
+{
+    int n;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+    printodd(n);
+}
+void printodd(int n)
+{
+    for(int i=0;i<n;i++)
+    {
+     if(i%2==0)
+    printf("%d\n",i+1);
+    }
+}
+*/
+
+/*
+//4. Write a function to print first N natural numbers (TSRN)
+int main()
+{
+    int n;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+    printNatural(n);
+}
+void printNatural(int n)
+{
+    for(int i=1;i<=n;i++)
+    {
+    printf("%d\n",i);
+  }
+}
+*/
+
+/*
+//3. Write a function to check whether a given number is even or odd. Return 1 if the number is even, otherwise return 0. (TSRS)
+int main()
+{
+    int n,s;
+    printf("Enter a number:");
+    scanf("%d",&n);
+    s=iseven(n);
+    printf("%d",s);
+}
+int iseven(int n)
+{
+    if(n&1)
+        return 0;
+    else
+     return 1;
+}
+*/
+
+/*
+//2. Write a function to calculate simple interest. (TSRS)
+float simpleint(float ,float ,float );
+int main()
+{
+    float a,b,c,s;
+    printf("Enter principle , rate and time \n");
+    scanf("%f%f%f",&a,&b,&c);
+    s=simpleint(a,b,c);
+    printf("%f",s);
+}
+float simpleint(float a,float b,float c)
+{
+    float sip;
+    sip=(a*b*c)/100;
+    return (sip);
+}
+*/
+
+
+/*
+//1. Write a function to calculate the area of a circle. (TSRS)
+float areacircle(float );
+int main()
+{
+    float r;
+    printf("Enter radius of circle");
+    scanf("%f",&r);
+    printf("Area of circle is: %f",areacircle(r));
+}
+float areacircle(float r)
+{
+    float pi=3.14,area;
+    area=pi*r*r;
+    return (area);
+}
+*/
