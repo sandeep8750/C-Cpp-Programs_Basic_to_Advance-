@@ -1,0 +1,413 @@
+/*
+//10. C program to find all roots of a quadratic equation using switch case
+int main()
+{
+    int a,b,c;
+    float real , imag;
+    int disc;
+    float root1,root2;
+    printf("Enter values of a, b, c of quadratic equation (aX^2 + bX + c)");
+    scanf("%d%d%d",&a,&b,&c);
+    disc=(b*b)-(4*a*c);
+    switch(disc>0)
+    {
+    case 1:
+        root1=(-b+sqrt(disc))/(2*a);
+        root2=(-b-sqrt(disc))/(2*a);
+        printf(" two real and disticnt roots:%f%f",root1,root2);
+        break;
+    case 0:
+        switch(disc<0)
+        {
+          case 1:
+        root1=root2=-b/(2*a);
+        imag=sqrt(-disc)/(2*a);
+        printf("value of root1 =%2f+%2fi and value of root2 %2f-%2fi",root1,imag,root2,imag);
+    break;
+    case 0:
+        root1=root2=-b/(2*a);
+        printf("both root are same r1 %f r2 %f",root1,root2);
+        break;
+
+        }
+    }
+}
+*/
+
+
+/*
+//9. Program to Convert even number into its upper nearest odd number
+//Switch Statement.
+int main()
+{
+    int n;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+    switch(n%2==0)
+    {
+    case 1:
+        printf("%d",n+1);
+        break;
+    case 0:
+        printf("Enterd number is not even ");
+    }
+}
+*/
+
+
+/*
+//8. Program to convert a positive number into a negative number and negatie
+//number into a positive number using a switch statement.
+ int main()
+ {
+     int n;
+     printf("Enter a number: ");
+         scanf("%d",&n);
+         switch(n<=0)
+         {
+         case 1:
+            n=n*(-1);
+            printf("%d is positive number of negative number",n);
+            break;
+         case 0:
+            n=n*(-1);
+            printf("%d is negative number of positive number",n);
+         }
+         return ;
+ }
+ */
+
+
+/*
+7. Program to take the value from the user as input electricity unit charges
+and calculate total electricity bill according to the given condition . Using
+the switch statement.
+For the first 50 units Rs. 0.50/unit
+For the next 100 units Rs. 0.75/unit
+For the next 100 units Rs. 1.20/unit
+For units above 250 Rs. 1.50/unit
+An additional surcharge of 20% is added to the bill.
+*/
+/*
+int main()
+{
+    float unit,rupee=0,total=0;
+    printf("Enter your unit: ");
+    scanf("%f",&unit);
+    switch(unit<=50)
+    {
+    case 1:
+        rupee=unit*0.5;
+        break;
+    case 0:
+        switch(unit<=150)
+        {
+        case 1:
+            rupee=25+(unit-50)*0.75;
+            break;
+        case 0:
+            switch(unit<=250)
+            {
+            case 1:
+                rupee=100+(unit-150)*1.20;
+                break;
+            case 0:
+                rupee=220+(unit-250)*1.50;
+                }
+                break;
+            }
+            break;
+        }
+        total=rupee+rupee*0.20;
+        printf("%f",total);
+
+}
+*/
+
+/*
+//6. Program to check whether a year is a leap year or not. Using switch statement
+int main()
+{
+    int y;
+    printf("Enter a year");
+    scanf("%d",&y);
+    switch(y%100==0)
+    {
+    case 1:
+        switch(y%400==0)
+        {
+         case 1:printf("leap year");break;
+         case 0:printf("non leap year");break;
+        }
+        break;
+    case 0:
+        switch(y%4==0)
+        {
+        case 1:printf("leap year");break;
+        case 0:printf("non leap year");break;
+        }
+    }
+}
+*/
+
+
+/*
+5. Convert the following if-else-if construct into switch case:
+if(var == 1)
+System.out.println("good");
+else if(var == 2)
+System.out.println("better");
+else if(var == 3)
+System.out.println("best");
+else
+System.out.println("invalid");
+*/
+/*
+int main()
+{
+    int var;
+printf("Enter a number: ");
+scanf("%d",&var);
+switch(var)
+{
+ case 1:
+printf("good");
+break;
+case 2:
+printf("better");
+break;
+case 3:
+printf("best");
+break;
+default :
+    printf("invalid");
+}
+}
+*/
+
+/*
+4. Write a menu driven program with the following options:
+a. Check whether a given set of three numbers are lengths of an
+isosceles triangle or not
+b. Check whether a given set of three numbers are lengths of sides of
+a right angled triangle or not
+c. Check whether a given set of three numbers are equilateral triangle
+or not
+d. Exit
+*/
+/*
+int main()
+{
+    int n,a,b,c;
+    while(1)
+    {
+            printf("\n1.To cheak a tringle is isosceles triangle");
+    printf("\n2.To cheak a triangle is right angle triangle");
+    printf("\n3.To cheak a triangle is equilateral triangle");
+    printf("\n4.Exit");
+    printf("\nEnter your choice: ");
+    scanf("%d",&n);
+    switch(n)
+    {
+    case 1:
+        printf("\nEnter your three sides of triangle\n");
+        scanf("%d%d%d",&a,&b,&c);
+        if(a==b||b==c||c==a)
+        {
+            printf("triangle is isosceles ");
+        }
+            else
+            printf("Not isosceles ");
+        break;
+    case 2:
+        printf("\nEnter your three sides of triangle\n");
+        scanf("%d%d%d",&a,&b,&c);
+        if(a*a==b*b+c*c||b*b==c*c+a*a||c*c==b*b+c*c)
+        {
+            printf("Right angle triangle");
+        }
+        else
+            printf("Not Right angle tringle");
+        break;
+    case 3:
+        printf("\nEnter your three sides of triangle\n");
+        scanf("%d%d%d",&a,&b,&c);
+        if(a==b&&b==c)
+        {
+            printf("triangle is Equelateral triangle");
+        }
+        else
+            printf("Not Equelateral");
+        break;
+    case 4:
+        exit(0);
+    default:
+        printf("invalid input");
+    }
+    }
+}
+*/
+
+
+/*
+//3. Write a program which takes the day number of a week and displays a unique greeting message for the day.
+int main()
+{
+    int number ;
+    printf("Enter the month number : ");
+    scanf("%d",&number);
+
+    switch(number)
+    {
+    case 1:
+        printf("Hello");
+        break;
+
+    case 2:
+        printf("Hiiii");
+        break;
+
+    case 3:
+        printf("How are you");
+        break;
+
+    case 4:
+        printf("Namste");
+        break;
+
+    case 5:
+        printf("Good luck");
+        break;
+
+    case 6:
+        printf("Be consistant");
+        break;
+
+    case 7:
+        printf("End of day");
+        break;
+
+
+    default:
+        printf("Invalid Entry");
+
+    }
+}
+*/
+
+/*
+//2. Write a menu driven program with the following options:
+//a. Addition
+//b. Subtraction
+//c. Multiplication
+//d. Division
+//e. Exit
+int main()
+{
+     int n,a,b;
+        while(1)
+     {
+
+     printf("\n1.Addition");
+     printf("\n2.Subtraction");
+     printf("\n3.Multiplication");
+     printf("\n4.Division");
+     printf("\n5.Exit");
+     printf("\nseletc your choice");
+     scanf("%d",&n);
+      switch(n)
+     {
+     case 1:
+        printf("\nEnter two number: ");
+        scanf("%d%d",&a,&b);
+        printf("\nAddition of two number is %d",a+b);
+        break;
+     case 2:
+        printf("\nEnter two number: ");
+        scanf("%d%d",&a,&b);
+        printf("\nSubtraction between two number is %d",a-b);
+        break;
+     case 3:
+        printf("\nEnter two number: ");
+        scanf("%d%d",&a,&b);
+        printf("\nmultiplication of two number is %d",a*b);
+        break;
+     case 4:
+        printf("\nEnter two number: ");
+        scanf("%d%d",&a,&b);
+        printf("\nDivision between two number is %d",a/b);
+        break;
+     case 5:
+        exit(0);
+        default:
+        printf("Invalid Input");
+     }
+     }
+}
+*/
+
+
+/*
+//1. Write a program which takes the month number as an input and display number of days in that month.
+int main()
+{
+    int number ;
+    printf("Enter the month number : ");
+    scanf("%d",&number);
+
+    switch(number)
+    {
+    case 1:
+        printf("31 days");
+        break;
+
+    case 2:
+        printf("28 days");
+        break;
+
+    case 3:
+        printf("31 days");
+        break;
+
+    case 4:
+        printf("30 days");
+        break;
+
+    case 5:
+        printf("31 days");
+        break;
+
+    case 6:
+        printf("30 days");
+        break;
+
+    case 7:
+        printf("31 days");
+        break;
+
+    case 8:
+        printf("31 days");
+        break;
+
+    case 9:
+        printf("30 days");
+        break;
+
+    case 10:
+        printf("31 days");
+        break;
+
+    case 11:
+        printf("30 days");
+        break;
+
+    case 12:
+        printf("31 days");
+        break;
+
+    default:
+        printf("Invalid Entry");
+
+    }
+}
+*/
