@@ -1,0 +1,225 @@
+//1. Write a program to calculate the length of the string. (without using built-in method)
+#include<stdio.h>
+int main()
+{
+    char str[20];
+    int x,lenght=0,i;
+    printf("Enter a string ");
+    fgets(str,20,stdin);
+    /*
+    x=printf("%s",str);
+    printf("lenght of string is %d",x);
+    */
+    for(int i=0;str[i]!='\0';i++)
+    {
+        lenght++;
+    }
+printf("lenght of string is %d",lenght );
+
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+2. Write a program to count the occurrence of a given character in a given string.
+#include<stdio.h>
+int main()
+{
+    char string[50],ch;
+    int i,count=0;
+    printf("Enter a string \n");
+    fgets(string,20,stdin);
+
+    printf("Enter a character to searched in given string : ");
+    ch=getchar();
+
+    for(i=0;string[i];i++)
+    {
+        if(string[i]==ch)
+            count++;
+    }
+
+    printf("searched character  \"%c\" occur %d time in given array ",ch,count);
+}
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//3. Write a program to count vowels in a given string
+int main()
+{
+    int i,count=0;
+    char string[50];
+    printf("Enter a string : ");
+    gets(string);
+
+    for(i=0;string[i];i++)
+    {
+    if(string[i]=='a'||string[i]=='e'||string[i]=='i'||string[i]=='o'||string[i]=='u'||string[i]=='A'||string[i]=='E'||string[i]=='I'||string[i]=='O'||string[i]=='U')
+        count++;
+    }
+    printf("%d number of vowel in entered string",count);
+}
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//4. Write a program to convert a given string into uppercase.
+int main()
+{
+    int i;
+    char string[50];
+
+    printf("Enter a string: ");
+    gets(string);
+    while(string[i])
+    {
+    if(string[i]>='a'&&string[i]<='z')
+        string[i]=string[i]-32;
+        i++;
+    }
+
+    for(i=0;string[i];i++)
+        printf("%c",string[i]);
+}
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+5. Write a program to convert a given string into lowercase
+int main()
+{
+    int i;
+    char string[50];
+
+    printf("Enter a string to convert into lowercase : ");
+    gets(string);
+    while(string[i])
+    {
+    if(string[i]>='A'&&string[i]<='Z')
+        string[i]=string[i]+32;
+        i++;
+    }
+
+    for(i=0;string[i];i++)
+        printf("%c",string[i]);
+}
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//6. Write a program to reverse a string.
+int main()
+{
+    int i,j,count=0;
+    char string[50],temp;
+    printf("Enter a string to reverse : ");
+    gets(string);
+
+    for(i=0;string[i];i++)
+    count++;
+
+        for(j=count;j>=0;j--)
+        {
+               printf("%c",string[j]);
+        }
+    }
+    method 2
+    //6. Write a program to reverse a string.
+int main()
+{
+    int i,j,count=0;
+    char string[50],temp;
+    printf("Enter a string to reverse : ");
+    gets(string);
+
+    for(i=0;string[i];i++)
+    count++;
+
+     j=count;
+        for(i=0;i<count/2;i++)
+        {
+            temp=string[i];
+            string[i]=string[j-1-i];
+            string[j-1-i]=temp;
+        }
+
+        for(j=0;string[j];j++)
+            printf("%c",string[j]);
+}
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//7. Write a program in C to count the total number of alphabets, digits and special characters in a string.
+int main()
+{
+    char string[50];
+    int alpha=0,digit=0,special=0,i;
+    printf("Enter any to count number of alphabets, digits and special characters in a string\n\n");
+    gets(string);
+
+    for(i=0;string[i];i++)
+    {
+    if((string[i]>='A'&&string[i]<='Z') || (string[i]>='a'&&string[i]<='z'))
+        alpha++;
+    else if(string[i]>='0'&&string[i]<='9')
+         digit++;
+    else
+        special++;
+    }
+        printf(" \nNumber of alphabet is %d",alpha);
+        printf(" \nNumber of digit is %d",digit);
+        printf(" \nNumber of special character  is %d",special);
+}
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//8. Write a program in C to copy one string to another string.
+#include<stdio.h>
+int main()
+{
+    int i=0;
+    char string1[50],string2[50];
+    printf("Enter a string : ");
+    fgets(string1,sizeof string1,stdin);
+    while(string1[i])
+    {
+    string2[i]=string1[i];
+      i++;
+    }
+    string2[i]='\0';
+    printf(" first string %s",string1);
+    printf(" \nsecond string is after copied ");
+printf("\"%s\"",string2);
+
+}
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//9. Write a C program to sort a string array in ascending order.
+int main()
+{
+    char string[50],temp;
+    int i,j,l;
+    printf("Enter a string : ");
+    gets(string);
+
+    l=strlen(string);
+
+    for(i=0;string[i];i++)
+    {
+        for(j=i+1;string[j];j++)
+        {
+            if(string[i]<string[j])
+            {
+                temp=string[j];
+                string[j]=string[i];
+                string[i]=temp;
+            }
+        }
+    }
+    for(i=l;i>=0;i--)
+        printf("%c",string[i]);
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//10. Write a program in C to Find the Frequency of Characters.
+int main()
+{
+    int i,count=0;
+    char string[50],ch;
+    printf("Ente a string : ");
+    gets(string);
+
+    printf("Enter a character to find its frequency ");
+    ch=getchar();
+
+    for(i=0;string[i];i++)
+    {
+    if(ch==string[i])
+            count++;
+    }
+
+    printf("ferquency of character \"%c\" is  %d",ch,count);
+}
+
