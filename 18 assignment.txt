@@ -1,0 +1,285 @@
+//1. Write a function to calculate length of the string
+#include<stdio.h>
+int main()
+{
+    int i;
+    char string[50];
+    printf("Enter a string  : ");
+    fgets(string,50,stdin);
+
+    lenght(string);
+}
+
+int lenght(char string[])
+{
+    int i;
+     for(i=0;string[i];i++);
+    printf("lenght of string %d",i-1);
+
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////2. Write a function to reverse a string.
+//2. Write a function to reverse a string.
+int main()
+{
+
+    char string[50];
+
+    printf("Enter a string : ");
+    gets(string);
+
+    reverstring(string);
+}
+
+void reverstring(char string[])
+{
+    int i,n;
+    for(i=0;string[i];i++)
+        n=i;
+    for(i=n;i>=0;i--)
+    printf("%c",string[i]);
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//3. Write a function to compare two strings.
+int main()
+{
+    char string1[50],string2[50];
+    printf("Enter first string: ");
+    gets(string1);
+    printf("Enter second string: ");
+    gets(string2);
+
+    compare(string1,string2);
+
+}
+int compare(char string1[],char string2[])
+{
+    int i,flage=1;
+    for(i=0;string1[i]!='\0'&&string2[i]!='\0';)
+    {
+    if(string1[i]!=string2[i])
+    {
+        flage=0;
+        break;
+    }
+    i++;
+    }
+
+    if(flage==1)
+        printf("Both string are equal ");
+    else
+        printf("strings are not equal ");
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//4. Write a function to transform string into uppercase
+
+   int main()
+   {
+       char string[50];
+
+       printf("Enter a string in lowercase to convert into uppercase : ");
+       gets(string);
+
+       uppercase(string);
+   }
+
+  void uppercase(char string[])
+   {
+       int i;
+       for(i=0;string[i];i++)
+       {
+       if(string[i]>='a'&&string[i]<='z')
+       {
+           string[i]=string[i]-32;
+       }
+       }
+       printf("%s",string);
+   }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//5. Write a function to transform a string into lowercase
+   int main()
+   {
+       char string[50];
+
+       printf("Enter a string in uppercase to convert into lowercase : ");
+       gets(string);
+
+       uppercase(string);
+   }
+
+  void uppercase(char string[])
+   {
+       int i;
+       for(i=0;string[i];i++)
+       {
+       if(string[i]>='A'&&string[i]<='Z')
+       {
+           string[i]=string[i]+32;
+       }
+       }
+       printf("%s",string);
+   }
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//6. Write a function to check whether a given string is an alphanumeric string or not.
+//(Alphanumeric string must contain at least one alphabet and one digit)
+int main()
+{
+    char string[50];
+    int i,a=0,d=0;
+    printf("Enter a string : ");
+    gets(string);
+
+    for(i=0;string[i];i++)
+    {
+        if(string[i]>='A'&&string[i]<='Z'||string[i]>='a'&&string[i]<='z')
+           a=1;
+           if(string[i]>='0'&&string[i]<='9')
+            d=1;
+    }
+
+    if(a==1&&d==1)
+        printf("alphanumeric string ");
+        else
+            printf("not alphanumeric string ");
+
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//7. Write a function to check whether a given string is palindrome or not.
+int main()
+{
+    char string[50];
+
+    printf("Enter a string ");
+    scanf("%s",&string);
+
+    ispali(string);
+}
+
+void ispali(char string[])
+{
+    int i,j=0,n;
+    for(i=0;string[i];i++)
+        n=i;
+
+      for(i=0,j=n;i<=j;i++,j--)
+    {
+        if(string[i]!=string[j])
+        {
+            break;
+        }
+   }
+    if(i>j)
+        printf("palindrome string");
+    else
+        printf("not a palindrome string ");
+
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//8. Write a function to count words in a given string
+int main()
+{
+    char string[50];
+    printf("Enter a string ");
+    gets(string);
+
+    countword(string);
+}
+
+void countword(char string[])
+{
+    int i=0,count=0;
+    while(string[i])
+    {
+        if(string[i]==32&&string[i+1]!=32)
+        {
+            count++;
+        }
+        i++;
+    }
+    printf("%d word in string ",count);
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ /*9. Write a function to reverse a string word wise. (For example if the given string is
+“Mysirg Education Services” then the resulting string should be “Services Education
+Mysirg” )*/
+int main()
+{
+    int i=0,flage=0,start=0,end=0;
+    char string[50];
+    printf("Enter a string : ");
+    gets(string);
+
+    while(string[i]!='\0')
+    {
+    while(string[i]!=32)
+    {
+        if(string[i]=='\0')
+        {
+            flage=1;
+            break;
+        }
+        end++;
+        i++;
+    }
+    swap(string,start,end-1);
+    if(flage==1)
+        break;
+    start=end++;
+    i++;
+    }
+
+    swap(string,0,i-1);
+    printf("%s",string);
+    return ;
+}
+
+void swap(char string[] ,int i,int j)
+{
+    char temp ;
+    while(i<=j)
+    {
+    temp=string[i];
+    string[i]=string[j];
+    string[j]=temp;
+    i++;
+    j--;
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//10. Write a function to find the repeated character in a given string.
+int main()
+{
+    char string[50];
+    int temp[50],count=0,j,i;
+    printf("Enter a string : ");
+    gets(string );
+
+    for(i=0;string[i];i++)
+    {
+        count=1;
+        for(j=i+1;string[j];j++)
+        {
+            if(string[i]==string[j])
+            {
+                count++;
+                string[j]=-1;
+            }
+        }
+            temp[i]=count;
+    }
+
+    for(i=0;string[i];i++)
+    {
+    if(string[i]!=-1)
+    {
+        if(string[i]==32)
+            continue;
+        else
+        printf("%c is %d time \n",string[i],temp[i]);
+
+    }
+    }
+
+}
