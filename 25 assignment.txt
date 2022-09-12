@@ -1,0 +1,435 @@
+1. Define a class Complex to represent a complex number.Declare instance member
+    variables to store real and imaginary part of a complex number,
+    also define instance
+        member functions to set values of complex number and print values of complex
+            number
+#include <iostream>
+    using namespace std;
+int set_valu(int, int);
+void print_value();
+class complex
+{
+private:
+    int real;
+    int imag;
+
+public:
+    int set_valu(int x, int y)
+    {
+        real = x;
+        imag = y;
+    }
+    void print_value()
+    {
+        cout << real << "+" << imag << "i";
+    }
+};
+
+int main()
+{
+    complex ob;
+
+    ob.set_valu(3, 5);
+    ob.print_value();
+    return 0;
+}
+///////////////////////////////////////////////////////////////////////
+2. Define a class Time to represent Time (like 3 hr 45 min 20 sec). Declare appropriate
+number of instance member variables and also define instance member functions to
+set values for time and display values of time.
+#include <iostream>
+using namespace std;
+class time
+{
+private:
+    int hour;
+    int min;
+    int sec;
+
+public:
+    void setime(int h, int m, int s)
+    {
+        hour = h;
+        min = m;
+        sec = s;
+    }
+    void displaytime()
+    {
+        cout << "time is->" << endl;
+        cout << hour << " hour " << min << " minute " << sec << " second ";
+    }
+};
+
+int main()
+{
+    time t;
+    int h, m, s;
+    cout << "Enter time :";
+    cin >> h >> m >> s;
+    t.setime(h, m, s);
+    t.displaytime();
+    return 0;
+}
+//////////////////////////////////////////////////////////////////////
+3. Define a class Factorial and define an instance member function to find the Factorial
+    of a number using class.
+#include <iostream>
+    using namespace std;
+
+class factorial
+{
+private:
+    int f;
+    int fact = 1;
+
+public:
+    int set_value(int n)
+    {
+        f = n;
+    }
+    int facto()
+    {
+        while (f != 1)
+        {
+            if (f == 1)
+                return 1;
+            fact = fact * f;
+            f--;
+        }
+    }
+    int display()
+    {
+        cout << "factorial of number is : " << fact << endl;
+    }
+};
+int main()
+{
+    factorial f, b;
+    int n, p;
+    cout << "Enter a number ";
+    cin >> n >> p;
+    f.set_value(n);
+    f.facto();
+    b.set_value(p);
+    b.facto();
+    f.display();
+    b.display();
+    return 0;
+}
+/////////////////////////////////////////////////////////////////////
+4. Define a class LargestNumber and define an instance member function to find the
+    Largest of three Numbers using the class.
+#include <iostream>
+    using namespace std;
+
+class largest_number
+{
+private:
+    int a, b, c;
+
+public:
+    void set_value(int x, int y, int z)
+    {
+        a = x;
+        b = y;
+        c = z;
+    }
+    int largest()
+    {
+        if (a > b && a > c)
+            return a;
+        else if (b > c)
+            return b;
+        else
+            return c;
+    }
+};
+
+int main()
+{
+    largest_number c1;
+    int a, b, c;
+    cout << "Enter three number ";
+    cin >> a >> b >> c;
+    c1.set_value(a, b, c);
+    cout << "largest number is ";
+    cout << c1.largest();
+    return 0;
+}
+//////////////////////////////////////////////////////////////////////
+5. Define a class ReverseNumber and define an instance member function to find
+    Reverse of a Number using class.
+#include <iostream>
+    using namespace std;
+
+class Revers
+{
+private:
+    int actualnumber;
+    int reversnumber;
+
+public:
+    void set_actualnuber(int n)
+    {
+        actualnumber = n;
+    }
+    int get_actualnumber()
+    {
+        return actualnumber;
+    }
+    int get_reversnumber()
+    {
+        return reversnumber;
+    }
+    void calculate_revers()
+    {
+        int rem;
+        reversnumber = 0;
+        while (actualnumber != 0)
+        {
+            rem = actualnumber % 10;
+            actualnumber = actualnumber / 10;
+            reversnumber = reversnumber * 10 + rem;
+        }
+    }
+};
+
+int main()
+{
+    int a, b;
+    Revers ob1, ob2;
+    printf("Enter two number.");
+    cin >> a >> b;
+    ob1.set_actualnuber(a);
+    cout << ob1.get_actualnumber() << endl;
+    ob1.calculate_revers();
+    cout << ob1.get_reversnumber() << endl;
+
+    ob2.set_actualnuber(b);
+    cout << ob2.get_actualnumber() << endl;
+    ob2.calculate_revers();
+    cout << ob2.get_reversnumber() << endl;
+    return 0;
+}
+///////////////////////////////////////////////////////////////////////////
+6. Define a class Square to find the square of a number and write a C++ program to
+    Count number of times a function is called.
+#include <iostream>
+    using namespace std;
+
+class squre
+{
+private:
+    int squre;
+    static int count;
+
+public:
+    void set_value(int n)
+    {
+        squre = n;
+    }
+    int get_return()
+    {
+        return numbersqure();
+    }
+    int numbersqure()
+    {
+        cout << ++count << " "
+             << "time funtion is used/call" << endl;
+        return (squre * squre);
+    }
+};
+
+int squre::count = 0;
+
+int main()
+{
+    int a;
+    squre ob;
+    while (1)
+    {
+        cout << "\n\npress \" 0 \" for exit " << endl;
+        cout << "Enter a number find squre.";
+        cin >> a;
+        ob.set_value(a);
+        cout << ob.get_return();
+
+        if (a == 0)
+        {
+            exit(0);
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////
+7. Define a class Greatest and define instance member function to find Largest among 3 numbers using classes.
+#include <iostream>
+    using namespace std;
+
+class Greatest
+{
+private:
+    int a, b, c;
+
+public:
+    void set_value(int x, int y, int z)
+    {
+        a = x;
+        b = y;
+        c = z;
+    }
+    int get_value()
+    {
+        return greatest();
+    }
+    int greatest()
+    {
+        return ((a > b && a > c) ? a : (b > c) ? b
+                                               : c);
+    }
+};
+
+int main()
+{
+    int x, y, z;
+    Greatest ob;
+    cout << "Enter three number to find greatest among of them.";
+    cin >> x >> y >> z;
+    ob.set_value(x, y, z);
+    cout << "Gteater number among of them is "
+         << " " << ob.get_value();
+    return 0;
+}
+////////////////////////////////////////////////////////////////////////
+8. Define a class Rectangle and define an instance member function to find the area of
+    the rectangle.
+#include <iostream>
+    using namespace std;
+class reactangle
+{
+    int lenght, breaht;
+
+public:
+    void set_value(int a, int b)
+    {
+        lenght = a;
+        breaht = b;
+    }
+    int get_area()
+    {
+        return area();
+    }
+    int area()
+    {
+        return lenght * breaht;
+    }
+};
+
+int main()
+{
+    reactangle ob;
+    int l, b;
+    cout << "Enter lenght and breaht of reactangle.";
+    cin >> l >> b;
+    ob.set_value(l, b);
+    cout << "Area of reactangle is :" << ob.get_area();
+    return 0;
+}
+///////////////////////////////////////////////////////////////////////
+9. Define a class Circle and define an instance member function to find the area of the
+    circle.
+#include <iostream>
+    using namespace std;
+class circle
+{
+private:
+    float radius;
+    float pi = 3.14;
+
+public:
+    float set_value(int a)
+    {
+        radius = a;
+    }
+    float get_area()
+    {
+        return area();
+    }
+    float area()
+    {
+        return pi * radius * radius;
+    }
+};
+
+int main()
+{
+    float r;
+    circle ob;
+    cout << "Enter radius of circle for find area.";
+    cin >> r;
+    ob.set_value(r);
+    cout << "Area of circle is :" << ob.get_area();
+    return 0;
+}
+/////////////////////////////////////////////////////////////////////
+10. Define a class Area and define instance member functions to find the area of the
+    different shapes like square,
+    rectangle, circle etc.
+#include <iostream>
+               using namespace std;
+
+class areaofshape
+{
+public:
+    float area(float radius)
+    {
+        int pi = 3.14;
+        return pi * radius * radius;
+    }
+    int area(int lenght)
+    {
+        return lenght * lenght;
+    }
+    float area(float lenght, float breath)
+    {
+        return lenght * breath;
+    }
+};
+
+int main()
+{
+    areaofshape ob;
+    float b, r;
+    int n, l;
+    while (1)
+    {
+        cout << endl;
+        cout << endl;
+        cout << "choose one out of them ";
+        cout << endl;
+        cout << "1.find area of circle ." << endl;
+        cout << "2.find area of squre ." << endl;
+        cout << "3.find area of reactangle ." << endl;
+        cout << "4.Exit ." << endl;
+        cin >> n;
+        switch (n)
+        {
+        case 2:
+            cout << "Enter side lenght for find area of squre.";
+            cin >> l;
+            cout << "area is " << ob.area(l);
+            break;
+        case 1:
+            cout << "Enter radius of circle .";
+            cin >> r;
+            cout << "area of circle " << ob.area(r);
+            break;
+        case 3:
+            cout << "Enter lenght & breath of reacangle.";
+            cin >> l >> b;
+            cout << "area of reacangle is :" << ob.area(l, b);
+            break;
+        case 4:
+            exit(0);
+        }
+    }
+}
