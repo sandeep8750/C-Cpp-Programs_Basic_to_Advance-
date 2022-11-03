@@ -1,0 +1,422 @@
+
+// 1. Write a C++ program to demonstrate the use of try, catch block with the argument as an
+// integer and string using multiple catch blocks.
+#include <iostream>
+using namespace std;
+
+void tryblock(int num)
+{
+    char c[] = "\nsandeep kumar this is not single di number .\n";
+    try
+    {
+        if (num >= 0 && num <= 9)
+            throw num;
+        else
+            throw c;
+    }
+    catch (int n)
+    {
+        cout << "It's a single di number .\n";
+    }
+    catch (char d[100])
+    {
+        cout << "Exception caught..." << c;
+    }
+}
+
+int main()
+{
+    int num;
+    cout << "Enter a number :";
+    cin >> num;
+    tryblock(num);
+    return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////
+2. Write a C++ program to demonstrate try, throw and catch statements.
+#include <iostream>
+                                           using namespace std;
+
+int main()
+{
+    int n;
+    cout << "enter a number .";
+    cin >> n;
+    try
+    {
+        if (n >= 0 && n <= 9)
+            throw n;
+        else if (n >= 97 && n <= 122)
+            throw 'e';
+    }
+    catch (int n)
+    {
+        cout << "thrown symbol is number.";
+    }
+    catch (char r)
+    {
+        cout << "thown symbol is char.";
+    }
+};
+///////////////////////////////////////////////////////////////////////////////////////////
+3. Write a C++ program to perform arithmetic operations on two numbers and throw an
+        exception if the dividend is zero or
+    does not contain an operator.
+#include <iostream >
+    using namespace std;
+
+int main()
+{
+    int n1, n2;
+    char op;
+    int ans;
+
+    cout << "\n Performing Arithmetic operation on Two number .\n";
+    cout << "\n-------------------------------------------------\n";
+
+    try
+    {
+        cout << "\n Enter first number \n";
+        cin >> n1;
+        if (n1 == 0)
+            throw 0;
+        cout << "\nEnter operator \n";
+        cin >> op;
+        if (op != '+' && op != '-' && op != '*' && op != '/')
+            throw op;
+        cout << "\nEnter second number .\n";
+        cin >> n2;
+        cout << "\n---------------------------------------------------------\n";
+        switch (op)
+        {
+        case '+':
+            ans = n1 + n2;
+            break;
+        case '-':
+            ans = n1 - n2;
+            break;
+        case '*':
+            ans = n1 * n2;
+            break;
+        case '/':
+            if (n2 == 0)
+                throw 0;
+            else
+                ans = n1 / n2;
+            break;
+        }
+        cout << "Answer :" << ans << ":" << n1 << op << n2 << endl;
+    }
+    catch (char c)
+    {
+        cout << "\n Exception caught...\n Bad operator :" << c << "is not valid \n";
+    }
+    catch (int n)
+    {
+        cout << "Exception caught ... operand can't as '0'\n";
+    }
+
+    return 0;
+}
+////////////////////////////////////////////////////////////////////////
+4. Write a C++ program to accept an email address and throw an exception if it does not contain @symbol.
+#include <iostream>
+    using namespace std;
+
+int EmailIsvalid(char *string)
+{
+    int cheak1 = -1, cheak2 = -1;
+    int length = 0;
+    for (int i = 0; string[i] != '\0'; i++)
+    {
+        if (string[i] == '@')
+            cheak1 = i;
+        if (string[i] == '.')
+            cheak2 = i;
+        length++;
+    }
+    if (cheak1 == -1 && cheak2 == -1)
+        return 0;
+    if (cheak1 > cheak2)
+        return 0;
+    return !(cheak2 >= (length - 1));
+}
+
+int main()
+{
+    char string[50];
+    cout << "Enter Email to cheak valid or not .\n ";
+    gets(string);
+
+    try
+    {
+        if (EmailIsvalid(string))
+            cout << "\nEnterd Email is valid .\n";
+        else
+            throw 'c';
+    }
+    catch (char c)
+    {
+        cout << " Exception is caught...\n Email is invalid : " << string << endl;
+    }
+    catch (...)
+    {
+        cout << "Default Exception bro";
+    }
+}
+////////////////////////////////////////////////////////////////////
+// 5. Write a C++ program to accept a mobile number and throw an exception if it does not
+// contain 10 dis.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int mobile, count = 0;
+    cout << "Enter your mobile number: ";
+    cin >> mobile;
+    try
+    {
+        while (mobile)
+        {
+            mobile /= 10;
+            count++;
+        }
+        if (count != 10)
+            throw 0;
+        if (count == 10)
+            throw 1;
+    }
+    catch (int num)
+    {
+        if (num == 1)
+            cout << "Valid mobile number \n";
+        if (num == 0)
+            cout << "Invalid mobile number \n";
+    }
+    catch (...)
+    {
+        cout << "Default Exception\n";
+    }
+    return 0;
+}
+//////////////////////////////////////////////////////////////////////
+6. Write a C++ program to accept area pin code and throw an exception if it does not contain 6 dis.
+#include <iostream>
+    using namespace std;
+
+int main()
+{
+    int pincode, count = 0;
+    cout << "Enter your pincode : ";
+    cin >> pincode;
+    try
+    {
+        while (pincode)
+        {
+            pincode /= 10;
+            count++;
+        }
+        if (count != 6)
+            throw 0;
+        if (count == 6)
+            throw 1;
+    }
+    catch (int num)
+    {
+        if (num == 1)
+            cout << "Valid pincode \n";
+        if (num == 0)
+            cout << "Invalid pincode \n";
+    }
+    catch (...)
+    {
+        cout << "Default Exception\n";
+    }
+    return 0;
+}
+///////////////////////////////////////////////////////////////////////
+7. Write a C++ program to accept a username if the username has less than 6 characters or does contain any di or special symbol.#include<iostream>
+#include <string.h>
+#include <ctype.h>
+#include <stdio.h>
+
+                                                                                                                 using namespace std;
+
+int main()
+{
+    int ischar = 0, isDi = 0, isSpeacial = 0, isException = 0;
+    char username[50];
+    cout << "Enter username :";
+    gets(username);
+    try
+    {
+        if (strlen(username) > 6)
+            throw 1;
+        for (int i = 0; username[i] != '\0'; i++)
+        {
+            if (isdi(username[i]))
+                isDi = 1;
+            if (username[i] >= 'a' && username[i] <= 'z' || username[i] >= 'A' && username[i] <= 'Z' || username[i] >= '0' && username[i] <= '9')
+                ischar = 1;
+            else
+                isSpeacial = 1;
+        }
+        if (isDi == 0)
+            throw 2;
+        if (ischar == 0)
+            throw 3;
+        if (isSpeacial == 0)
+            throw 4;
+    }
+    catch (int n)
+    {
+        if (n == 1)
+            cout << "username has more than six charactor \n Invalid username\n";
+        if (n == 2)
+            cout << "username doesn't contain any di. \n Invalid username\n";
+        if (n == 3)
+            cout << "username doesn't contain any charactor. \n Invalid username\n";
+        if (n == 4)
+            cout << "username doesn't contain any Speacial charactor. \n Invalid username\n";
+        isException = 1;
+    }
+    if (!isException)
+        cout << "Username Accepted .\n";
+}
+//////////////////////////////////////////////////////////////////////////////////////////
+8. Write a C++ program to accept a password and throw an exception if the password has
+        less than 6 characters or
+    does not contain a di or does not contain any special character or does not contain any capital letter.
+#include <iostream>
+#include <ctype.h>
+#include <string.h>
+
+                                                                       using namespace std;
+
+int main()
+{
+    int isDi = 0, ischar = 0, isSpeacial = 0, isschar = 0, isException = 0;
+    char pass[100];
+    cout << "Enter password to cheak valid or not.\n";
+    gets(pass);
+
+    try
+    {
+        if (strlen(pass) < 6)
+            throw 1;
+        for (int i = 0; pass[i] != '\0'; i++)
+        {
+            if (isdi(pass[i]))
+                isDi = 1;
+            if (pass[i] >= 'A' && pass[i] <= 'Z')
+            {
+                ischar = 1;
+            }
+            if (!(pass[i] >= 'a' && pass[i] <= 'z' || pass[i] >= 'A' && pass[i] <= 'Z' || pass[i] >= '0' && pass[i] <= '9'))
+                isSpeacial = 1;
+        }
+
+        if (isDi == 0)
+            throw 2;
+        if (ischar == 0)
+            throw 4;
+        if (isSpeacial == 0)
+            throw 5;
+    }
+    catch (int n)
+    {
+        if (n == 1)
+            cout << "pass has lest length .\n";
+        if (n == 2)
+            cout << "Password doesn't have any Di .\n";
+        if (n == 4)
+            cout << "Password doesn't has any Capital letter.\n";
+        if (n == 5)
+            cout << "Password doesn't have any Speacial charactor .\n";
+        isException = 1;
+    }
+    if (!isException)
+        cout << "Entered Password is valid . \nPassword Accepted \n";
+}
+///////////////////////////////////////////////////////////////////////////////
+9. Write a C++ program to accept Gmail id only and throw an exception if the id does not contain @ and gmail.com.
+#include <iostream>
+#include <string.h>
+
+                                                                                                       using namespace std;
+
+int main()
+{
+    int flage = 0;
+    char email[50];
+    cout << "Enter email for cheak email is valid or not :\n";
+    gets(email);
+    try
+    {
+        for (int i = 0; email[i] != '\0'; i++)
+        {
+            if (email[i] == '@')
+                flage = 1;
+        }
+        if (flage == 1)
+        {
+            if (strstr(email, "gmail.com"))
+                cout << "Enter email is valid and accepted ";
+            else
+                throw 1;
+        }
+        if (flage == 0)
+            throw 2;
+    }
+    catch (int n)
+    {
+        if (n == 1)
+        {
+            cout << "Email doesn't have gmail.com";
+        }
+        if (n == 2)
+        {
+            cout << "@ is missing in Email\n";
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////////
+10. Write a C++ program to accept Nickname and throw an exception if it has greater than 8 characters or does contain a digit or special symbol or space.
+#include <iostream>
+#include <string.h>
+                                                                                                                                                   using namespace std;
+
+int main()
+{
+    int flage = 0;
+    char nikname[90];
+    cout << "Enter nikename.\n";
+    gets(nikname);
+
+    try
+    {
+        if (strlen(nikname) > 8)
+            throw 1;
+
+        for (int i = 0; nikname[i] != '\0'; i++)
+        {
+            if (nikname[i] >= '0' && nikname[i] <= '9')
+                throw 2;
+            if (!(nikname[i] >= 'a' && nikname[i] <= 'z' || nikname[i] >= 'A' && nikname[i] <= 'Z'))
+                throw 3;
+        }
+    }
+    catch (int n)
+    {
+        if (n == 1)
+            cout << "nikname is greater than 8 charactor .\n";
+        if (n == 2)
+            cout << "nikname is have number\n";
+        if (n == 3)
+            cout << "nikname is have Specail charactor\n ";
+        flage = 1;
+    }
+    if (flage == 0)
+        cout << "nikname is valid .\n";
+}
