@@ -1,0 +1,341 @@
+1. Define a class Complex with appropriate instance variables and member functions.Overload following operators
+        a.
+    << insertion operator b.>> extraction operator
+#include <iostream>
+       using namespace std;
+
+class complex
+{
+private:
+    float real;
+    float imag;
+
+public:
+    friend istream &operator>>(istream &input, complex &obj)
+    {
+        input >> obj.real >> obj.imag;
+        return input;
+    }
+    friend ostream &operator<<(ostream &print, complex &obj)
+    {
+        print << obj.real << "+" << obj.imag << "i" << endl;
+        return print;
+    }
+};
+
+int main()
+{
+    complex obj1, obj2;
+    cout << "Enter real and imagnary part of complex number .";
+    cin >> obj1 >> obj2;
+    cout << obj1 << obj2;
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+2. Define a class Complex with appropriate instance variables and member functions.One of the functions should be setData() to set the properties of the object.Make
+    sure the names of formal arguments are the same as names of instance variables.
+#include <iostream>
+    using namespace std;
+
+class complex
+{
+private:
+    int real;
+    int imag;
+
+public:
+    void set_value(int real, int imag)
+    {
+        this->real = real;
+        this->imag = imag;
+    }
+    void display()
+    {
+        cout << real << "+" << imag << "i" << endl;
+    }
+};
+
+int main()
+{
+    complex obj1, obj2;
+    obj1.set_value(11, 33);
+    obj1.display();
+}
+//////////////////////////////////////////////////////////////////////////////////////////////
+3. Overload subscript operator[] that will be useful when we want to check for an index
+    out of bound.
+#include <iostream>
+    using namespace std;
+
+class subscript
+{
+    int array[100];
+    const int size = 100;
+
+public:
+    void setvalue(int index, int value)
+    {
+        if (index > size)
+        {
+            cout << "Index is out bound .";
+            exit(0);
+        }
+        array[index] = value;
+    }
+
+    friend ostream &operator<<(ostream &print, subscript &obj)
+    {
+        print << obj.array << endl;
+    }
+
+    int operator[](int index)
+    {
+        return array[index];
+    }
+};
+
+int main()
+{
+    subscript obj1, obj2;
+
+    obj1.setvalue(101, 23);
+    cout << obj1[101];
+    obj2.setvalue(33, 87);
+    cout << obj2[33];
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+6. Create a complex class and overload assignment operator for that class.
+#include <iostream >
+    using namespace std;
+
+class complex
+{
+private:
+    int real;
+    int imag;
+
+public:
+    complex()
+    {
+    }
+    complex(int r, int i)
+    {
+        real = r;
+        imag = i;
+    }
+    void display()
+    {
+        cout << real << "+" << imag << "i\n";
+    }
+
+    complex &operator=(complex &obj)
+    {
+        real = obj.imag;
+        imag = obj.real;
+    }
+};
+
+int main()
+{
+    complex obj1(2, 3), obj2(5, 6), obj3;
+
+    obj1.display();
+    obj2.display();
+
+    obj3 = obj1 = obj2;
+    obj3.display();
+}
+///////////////////////////////////////////////////////////////////////////////////////////////}
+7. Create an Integer class and overload logical not operator for that class.
+#include <iostream>
+    using namespace std;
+
+class Integer
+{
+    int i;
+
+public:
+    Integer(int i) : i(i)
+    {
+    }
+    int operator!()
+    {
+        return i += i;
+    }
+};
+
+int main()
+{
+    Integer obj = 5;
+    cout << !obj;
+    return 0;
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+8. Create a Coordinate class for 3 variables x,y and z and overload comma operator
+such that when you write c3 = (c1 , c2 ) then c2 is assigned to c3. Where c1,c2,and
+c3 are objects of 3D coordinate class.
+#include <iostream>
+using namespace std;
+
+class coordinate
+{
+    int x, y, z;
+
+public:
+    void setvalue(int a, int b, int c)
+    {
+        x = a;
+        y = b;
+        z = c;
+    }
+
+    void display()
+    {
+        cout << x << y << z << endl;
+    }
+
+    coordinate operator,(coordinate obj)
+    {
+        coordinate temp;
+        temp.x = obj.z;
+        temp.y = obj.y;
+        temp.z = obj.x;
+        return temp;
+    }
+};
+
+int main()
+{
+    coordinate obj1, obj2, obj3;
+    obj1.setvalue(2, 3, 4);
+    obj2.setvalue(5, 6, 7);
+
+    obj1.display();
+    obj2.display();
+    obj3 = (obj1, obj2);
+
+    obj3.display();
+}
+////////////////////////////////////////////////////////////////////////////////////////////////
+9. Create an Integer class that contains int x as an instance variable and overload
+    casting int()
+    operator that will type cast your Integer class object to int data type.
+#include <iostream>
+    using namespace std;
+
+class intger
+{
+    int x;
+
+public:
+    intger()
+    {
+    }
+    intger(int n)
+    {
+        x = n;
+    }
+    operator int()
+    {
+        return x;
+    }
+};
+int main()
+{
+    intger ob = 10;
+    int y;
+    y = ob;
+    cout << y;
+    return 0;
+}
+//////////////////////////////////////////////////////////////////////////////
+
+10. Create a Distance class having 2 instance variable feet and inches.Also create default constructor and parameterized constructor takes 2 variables.Now overload()
+    function call
+    operator that takes 3 arguments a,
+    b and c and set feet = a + c + 5 and inches = a + b + 15.
+#include <iostream>
+                                                  using namespace std;
+
+class Distance
+{
+    int feet;
+    int inches;
+
+public:
+    Distance()
+    {
+    }
+    Distance(int feet, int inches)
+    {
+        this->feet = feet;
+        this->inches = inches;
+    }
+
+    Distance operator()(int a, int b, int c)
+    {
+        Distance d;
+        d.feet = a + c + 5;
+        d.inches = a + b + 15;
+        return d;
+    }
+
+    void display()
+    {
+        cout << "Feet is :" << feet << endl
+             << "Inches is : " << inches << endl;
+    }
+};
+
+int main()
+{
+    Distance obj;
+    Distance obj2(22, 44);
+    obj2.display();
+
+    obj = obj(12, 33, 55);
+    obj.display();
+    return (0);
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////
+11. Create a class Marks that have one member variable marks and one member
+    function that will print marks.We know that we can access member functions using(.) dot
+    operator.Now you need to overload(->) arrow
+    operator to access that
+    function.
+#include <iostream>
+    using namespace std;
+
+class marks
+{
+    int mark;
+
+public:
+    marks(int mark) : mark(mark)
+    {
+    }
+    marks()
+    {
+    }
+    void setvalue(int m)
+    {
+        mark = m;
+    }
+    void display()
+    {
+        cout << mark << endl;
+    }
+    marks *operator->()
+    {
+        return this;
+    }
+};
+
+int main()
+{
+    marks obj = 4, obj2;
+    obj2->setvalue(55);
+    obj.display();
+    obj->display();
+    obj2->display();
+    return 0;
+}
