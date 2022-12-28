@@ -1,0 +1,204 @@
+1. Write a C++ program to create a file and print “File created successfully” and throw an error if file is not created.
+#include <iostream>
+#include <fstream>
+
+    using namespace std;
+
+int main()
+{
+    ofstream fout;
+    fout.open("D:/file/first.txt", ios::app);
+
+    if (fout)
+    {
+        cout << "file created successfully .\n ";
+    }
+    else
+        cout << "file not created bro. \n";
+    fout.close();
+}
+/////////////////////////////////////////////////////////////////////////
+// Write a C++ program to read a text file and count the number of characters in it.?
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    ofstream fout;
+    fout.open("D:/file/first.txt");
+    if (fout)
+    {
+        cout << "file is created bro .\n";
+        fout << "My name is sandeep.\n";
+    }
+    else
+        cout << "file not created successfully . \n";
+    fout.close();
+
+    ifstream fin;
+    fin.open("D:/file/first.txt");
+    if (!fin)
+    {
+        cout << "file is not open  bro .\n";
+    }
+    else
+        fin.seekg(0, ios::beg);
+    char ch;
+    int sp = 1, c = 0;
+    while (!fin.eof())
+    {
+        fin.get(ch);
+        if ((ch > 64 && ch < 91) || (ch > 96 && ch < 123))
+            c++;
+        if (ch == ' ')
+            sp++;
+    }
+    fin.close();
+
+    cout << "number of charactor are : " << c << endl;
+    cout << "number of word are : " << sp << endl;
+    return 0;
+}
+///////////////////////////////////////////////////////////////////////////////////
+// 3. Write a C++ program to open an output file 'a.txt' and append data to it.
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    ofstream fout;
+    fout.open("D:/file/first.txt", ios::app);
+    if (fout)
+    {
+        cout << "file is created bro .\n";
+        fout << "My name is sandeep.\n";
+    }
+    else
+        cout << "file not created successfully . \n";
+    fout.close();
+
+    ifstream fin;
+    fin.open("D:/file/first.txt");
+    if (!fin)
+    {
+        cout << "file is not open  bro .\n";
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////
+4. Write a program to copy the contents of one text file to another while changing the case of every alphabet.
+#include <iostream>
+#include <fstream>
+
+    using namespace std;
+
+int main()
+{
+    ofstream fout;
+    ifstream fin;
+    fin.open("D:/file/first.txt");
+    fout.open("D:/file/second.txt", ios::app);
+
+    char ch;
+    while (!fin.eof())
+    {
+        fin.get(ch);
+        if (ch >= 97 && ch <= 123)
+            ch = toupper(ch);
+        else if (ch >= 65 && ch <= 97)
+            ch = tolower(ch);
+        fout << ch;
+    }
+    fin.close();
+    fout.close();
+    cout << "file has been copied .\n";
+    return 0;
+}
+/////////////////////////////////////////////////////////////////////////
+5. Write a C++ program to merge the two files.
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <stdio.h>
+
+    using namespace std;
+
+int main()
+{
+    char ch;
+    string file1, file2, file3;
+    cout << "Enter first file name for merge (with extension) : ";
+    cin >> file1;
+    cout << "Enter second file name for merge (with extension): ";
+    cin >> file2;
+    cout << "Enter third file name where you want to store merge data (with extension) : ";
+    cin >> file3;
+    ifstream fin1, fin2;
+    fin1.open(file1);
+    fin2.open(file2);
+    ofstream fout;
+    fout.open(file3, ios::app);
+
+    if (!fin1 && !fin2)
+        cout << "file is not open for read .";
+    else
+        while (!fin1.eof())
+        {
+            fin1.get(ch);
+            fout << ch;
+        }
+    while (!fin2.eof())
+    {
+        fin2.get(ch);
+        fout << ch;
+    }
+    cout << "merge completed : ";
+    fin1.close();
+    fin2.close();
+    fout.close();
+    return 0;
+}
+////////////////////////////////////////////////////////////////////////////
+6. Write a C++ program that counts the total number of characters, words and lines in
+                                                                       the file.
+#include <iostream>
+#include <fstream>
+#include <string>
+                                                                   using namespace std;
+
+int main()
+{
+    char ch;
+    int word = 1, line = -1, chara = 0;
+    ifstream fin;
+
+    fin.open("D:/file/second.txt");
+    if (!fin)
+    {
+        cout << "file is not open sir ji.";
+    }
+    else
+    {
+        fin.seekg(0, ios::beg);
+        while (!fin.eof())
+        {
+            fin.get(ch);
+            if ((ch > 64 && ch < 91) || (ch > 96 && ch < 123))
+                chara++;
+            if (ch == ' ')
+                ++word;
+            if (ch == '\n')
+                line++;
+        }
+        cout << "charactor are : " << chara << endl;
+        cout << "words are : " << word << endl;
+        cout << "line are : " << line << endl;
+        fin.close();
+    }
+}
+///////////////////////////////////////////////////////////////////////
